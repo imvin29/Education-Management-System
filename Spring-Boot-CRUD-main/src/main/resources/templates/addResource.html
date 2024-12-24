@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Resource</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        .form-section {
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            background-color: #fff;
+        }
+
+        footer {
+            margin-top: 30px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Add New Resource</h1>
+    <div class="form-section">
+        <form th:action="@{/saveResource}" method="post">
+            <div class="form-group">
+                <label for="title">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Enter title" required>
+            </div>
+            <div class="form-group">
+                <label for="description">Description</label>
+                <textarea class="form-control" id="description" name="description" placeholder="Enter description"
+                          required></textarea>
+            </div>
+            <div class="form-group">
+                <label for="link">Link</label>
+                <input type="url" class="form-control" id="link" name="link" placeholder="Enter URL" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Save Resource</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>© 2024 Education Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>

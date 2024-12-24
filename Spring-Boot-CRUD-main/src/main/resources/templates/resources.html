@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Study Resources</title>
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+          crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .container {
+            margin-top: 20px;
+        }
+
+        h1 {
+            color: #4caf50;
+        }
+
+        .resource-table th {
+            background-color: #4caf50;
+            color: white;
+        }
+
+        footer {
+            margin-top: 30px;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <h1 class="text-center">Study Resources</h1>
+
+    <!-- View Resources Section -->
+    <div>
+        <table class="table table-striped resource-table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Link</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody th:each="resource : ${resources}">
+            <tr>
+                <td th:text="${resource.title}"></td>
+                <td th:text="${resource.description}"></td>
+                <td>
+                    <a th:href="${resource.link}" target="_blank" class="btn btn-primary btn-sm">Visit</a>
+                </td>
+                <td>
+                    <a th:href="@{'/deleteResource/' + ${resource.id}}" class="btn btn-danger btn-sm">Delete</a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <a href="/addResource" class="btn btn-success mt-3">Add New Resource</a>
+</div>
+
+<footer>
+    <p>© 2024 Education Management System. All rights reserved.</p>
+</footer>
+</body>
+</html>
